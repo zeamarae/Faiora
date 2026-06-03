@@ -164,5 +164,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-    event.waitUntil(clients.claim());
+    // FIX 2026-04-22: Commented out clients.claim() to prevent Chrome Extension "message port closed" errors.
+    // This allows extensions to finish their initialization without the page controller switching suddenly.
+    // event.waitUntil(clients.claim());
 });
